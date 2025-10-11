@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Premium Diwali Wish Card ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated Gradient Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a0033, #4a0e78, #ff006e, #8338ec, #3a86ff);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Particle System */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Animated Header */
+        .hero-header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 6em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ff6b35 50%, #f7931e 75%, #ffd700 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite, float 4s ease-in-out infinite;
+            text-shadow: 0 0 80px rgba(255, 215, 0, 0.8);
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            position: relative;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 2em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ff6b35;
+                opacity: 0.9;
+            }
+            50% { 
+                text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b35, 0 0 60px #ff006e;
+                opacity: 1;
+            }
+        }
+
+        /* Glassmorphism Form */
+        .input-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 50px auto;
+            max-width: 700px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                        0 0 60px rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: cardEntrance 1s ease-out;
+        }
+
+        @keyframes cardEntrance {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.9);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .input-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .input-section.hidden {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            color: #ffd700;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.2em;
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 10px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.6;
+        }
+
+        /* Premium File Upload */
+        .file-upload-area {
+            position: relative;
+            padding: 50px;
+            border: 3px dashed rgba(255, 215, 0, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .file-upload-area.drag-over {
+            border-color: #ff6b35;
+            background: rgba(255, 107, 53, 0.2);
+            transform: scale(1.05);
+        }
+
+        .upload-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .upload-text {
+            color: #ffd700;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1em;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-preview {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            text-align: center;
+            display: none;
+        }
+
+        .file-preview.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Premium Button */
+        .create-btn {
+            width: 100%;
+            padding: 25px;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #000;
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .create-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .create-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.8);
+        }
+
+        .create-btn:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .create-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Premium Wish Card */
+        .wish-card {
+            display: none;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(30px) saturate(200%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 40px;
+            padding: 70px;
+            margin: 50px auto;
+            max-width: 1100px;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                        0 0 80px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wish-card.active {
+            display: block;
+            animation: cardReveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes cardReveal {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.5) rotateY(90deg);
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        /* Animated Border */
+        .wish-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b35, #8338ec, #3a86ff, #06ffa5, #ffd700);
+            background-size: 400% 400%;
+            border-radius: 40px;
+            z-index: -1;
+            animation: borderGlow 4s ease infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* 3D Decorative Elements */
+        .card-deco {
+            position: absolute;
+            font-size: 5em;
+            filter: drop-shadow(0 0 20px currentColor);
+            animation: float3d 5s ease-in-out infinite;
+        }
+
+        .card-deco:nth-child(1) { top: 30px; left: 30px; color: #ffd700; animation-delay: 0s; }
+        .card-deco:nth-child(2) { top: 30px; right: 30px; color: #ff6b35; animation-delay: 1s; }
+        .card-deco:nth-child(3) { bottom: 30px; left: 30px; color: #8338ec; animation-delay: 2s; }
+        .card-deco:nth-child(4) { bottom: 30px; right: 30px; color: #06ffa5; animation-delay: 3s; }
+
+        @keyframes float3d {
+            0%, 100% { 
+                transform: translateY(0) translateZ(0) rotateZ(0deg);
+            }
+            33% { 
+                transform: translateY(-20px) translateZ(30px) rotateZ(10deg);
+            }
+            66% { 
+                transform: translateY(-10px) translateZ(-30px) rotateZ(-10deg);
+            }
+        }
+
+        /* Card Header */
+        .card-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: titlePulse 3s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.3); }
+        }
+
+        .to-name {
+            font-size: 3em;
+            font-weight: 700;
+            color: #ff6b35;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.8),
+                         0 5px 20px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            animation: nameGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes nameGlow {
+            0%, 100% { 
+                text-shadow: 0 0 30px rgba(255, 107, 53, 0.8), 0 5px 20px rgba(0, 0, 0, 0.5);
+            }
+            50% { 
+                text-shadow: 0 0 50px rgba(255, 107, 53, 1), 0 0 80px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* Premium Diya Row */
+        .diya-collection {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+
+        .premium-diya {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            animation: diyaFloat 4s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        .premium-diya:nth-child(1) { animation-delay: 0s; }
+        .premium-diya:nth-child(2) { animation-delay: 0.4s; }
+        .premium-diya:nth-child(3) { animation-delay: 0.8s; }
+        .premium-diya:nth-child(4) { animation-delay: 1.2s; }
+        .premium-diya:nth-child(5) { animation-delay: 1.6s; }
+
+        @keyframes diyaFloat {
+            0%, 100% { 
+                transform: translateY(0) rotateY(0deg) rotateX(0deg);
+            }
+            25% { 
+                transform: translateY(-15px) rotateY(10deg) rotateX(5deg);
+            }
+            50% { 
+                transform: translateY(-25px) rotateY(-10deg) rotateX(-5deg);
+            }
+            75% { 
+                transform: translateY(-15px) rotateY(5deg) rotateX(5deg);
+            }
+        }
+
+        .diya-base {
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4691a 0%, #8b4513 50%, #654321 100%);
+            border-radius: 0 0 30px 30px;
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            box-shadow: 0 10px 30px rgba(212, 105, 26, 0.8),
+                        inset 0 -5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .diya-flame-container {
+            position: absolute;
+            top: -35px;
+            left: 30px;
+            width: 30px;
+            height: 50px;
+        }
+
+        .diya-flame {
+            width: 25px;
+            height: 45px;
+            background: linear-gradient(180deg, 
+                #fff700 0%, 
+                #ffed4e 20%, 
+                #ff9500 50%, 
+                #ff6b35 80%, 
+                #ff4500 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            animation: megaFlicker 0.15s infinite alternate;
+            box-shadow: 0 0 30px #ff9500,
+                        0 0 50px #ff4500,
+                        0 -10px 20px rgba(255, 237, 78, 0.8);
+        }
+
+        @keyframes megaFlicker {
+            0% { 
+                transform: scale(1) translateY(0) skewX(0deg);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.05) translateY(-2px) skewX(2deg);
+                filter: brightness(1.2);
+            }
+            100% { 
+                transform: scale(1.1) translateY(-4px) skewX(-2deg);
+                filter: brightness(1.4);
+            }
+        }
+
+        .flame-glow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, 
+                rgba(255, 149, 0, 0.6) 0%, 
+                rgba(255, 107, 53, 0.4) 40%,
+                transparent 70%);
+            top: -30px;
+            left: -35px;
+            border-radius: 50%;
+            animation: glowPulse 1.5s ease-in-out infinite;
+            filter: blur(10px);
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: scale(1.4);
+                opacity: 1;
+            }
+        }
+
+        /* Video Section */
+        .video-showcase {
+            margin: 50px 0;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8),
+                        0 0 60px rgba(255, 215, 0, 0.3);
+            position: relative;
+            transform-style: preserve-3d;
+            animation: videoReveal 1s ease-out 0.5s both;
+        }
+
+        @keyframes videoReveal {
+            from { 
+                opacity: 0;
+                transform: perspective(1000px) rotateX(-20deg) translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: perspective(1000px) rotateX(0deg) translateY(0);
+            }
+        }
+
+        .video-showcase::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b35, #8338ec);
+            border-radius: 30px;
+            z-index: -1;
+            animation: videoBorder 3s linear infinite;
+        }
+
+        @keyframes videoBorder {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            border-radius: 28px;
+        }
+
+        /* Message Box */
+        .wish-message-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.1);
+            animation: messageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes messageFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .wish-message-text {
+            font-size: 1.5em;
+            line-height: 2;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .from-name-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .from-label {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .from-name {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Premium Action Buttons */
+        .action-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 18px 45px;
+            font-size: 1.3em;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .action-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #06ffa5, #00d4ff);
+            color: #000;
+            box-shadow: 0 10px 40px rgba(6, 255, 165, 0.4);
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 15px 50px rgba(6, 255, 165, 0.6);
+        }
+
+        .share-btn {
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            color: #fff;
+            box-shadow: 0 10px 40px rgba(255, 0, 110, 0.4);
+        }
+
+        .share-btn:hover {
+            box-shadow: 0 15px 50px rgba(255, 0, 110, 0.6);
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #ffd60a, #ff9500);
+            color: #000;
+            box-shadow: 0 10px 40px rgba(255, 214, 10, 0.4);
+        }
+
+        .reset-btn:hover {
+            box-shadow: 0 15px 50px rgba(255, 214, 10, 0.6);
+        }
+
+        /* Fireworks */
+        .firework-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-spinner {
+            width: 100px;
+            height: 100px;
+            border: 5px solid rgba(255, 215, 0, 0.3);
+            border-top: 5px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title { font-size: 3.5em; letter-spacing: 2px; }
+            .subtitle { font-size: 1.2em; letter-spacing: 4px; }
+            .input-section { padding: 35px 25px; }
+            .wish-card { padding: 40px 25px; }
+            .card-title { font-size: 2.5em; }
+            .to-name { font-size: 2em; }
+            .card-deco { font-size: 3em; }
+            .diya-collection { gap: 30px; }
+            .action-bar { flex-direction: column; }
+            .action-btn { width: 100%; }
+            .wish-message-text { font-size: 1.2em; }
+            /* Glassmorphism Form */
+    
+
+        .input-section {
+            background:none;
+            backdrop-filter:none;
+            border: none;
+            border-radius: 30px;
+            padding: 60px;
+            margin: 50px auto;
+            max-width: 700px;
+            box-shadow: none;
+            position: relative;
+            overflow: hidden;
+            animation: cardEntrance 1s ease-out;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="container">
+        <!-- Hero Header -->
+        <div class="hero-header">
+            <h1 class="main-title">दीपावली</h1>
+            <p class="subtitle">✨ Premium Wish Card Ashish Patel✨</p>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section" id="inputSection">
+            <div class="form-group">
+                <label>✍️ आपका नाम</label>
+                <input type="text" id="fromName" placeholder="अपना नाम यहाँ लिखें..." />
+            </div>
+
+            <div class="form-group">
+                <label>💝 किसके लिए</label>
+                <input type="text" id="toName" placeholder="उनका नाम यहाँ लिखें..." />
+            </div>
+
+            <div class="form-group">
+                <label>💌 शुभकामना संदेश</label>
+                <textarea id="wishMessage" placeholder="अपना प्यारा संदेश यहाँ लिखें...">इस दीपावली आपके जीवन में खुशियों के दीप जलते रहें। माँ लक्ष्मी की कृपा सदा आप पर बनी रहे। आपका घर सुख-समृद्धि से भरा रहे। हैप्पी दीपावली! 🪔✨</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🎥 Video अपलोड करें</label>
+                <div class="file-upload-area" id="uploadArea">
+                    <div class="upload-icon">🎬</div>
+                    <div class="upload-text">Video Select करें</div>
+                    <div class="upload-hint">या यहाँ Drag & Drop करें</div>
+                    <input type="file" id="videoInput" accept="video/*" />
+                </div>
+                <div class="file-preview" id="filePreview">
+                    <span id="fileName">✅ Video Selected!</span>
+                </div>
+            </div>
+
+            <button class="create-btn" onclick="createCard()">
+                <span>🎊 Create Wish Card 🎊</span>
+            </button>
+        </div>
+
+        <!-- Wish Card -->
+        <div class="wish-card" id="wishCard">
+            <div class="card-deco">🪔</div>
+            <div class="card-deco">✨</div>
+            <div class="card-deco">🎆</div>
+            <div class="card-deco">🪔</div>
+
+            <div class="card-header">
+                <h2 class="card-title">शुभ दीपावली</h2>
+                <p class="to-name" id="displayToName"></p>
+            </div>
+
+            <div class="diya-collection">
+                <div class="premium-diya">
+                    <div class="flame-glow"></div>
+                    <div class="diya-flame-container">
+                        <div class="diya-flame"></div>
+                    </div>
+                    <div class="diya-base"></div>
+                </div>
+                <div class="premium-diya">
+                    <div class="flame-glow"></div>
+                    <div class="diya-flame-container">
+                        <div class="diya-flame"></div>
+                    </div>
+                    <div class="diya-base"></div>
+                </div>
+                <div class="premium-diya">
+                    <div class="flame-glow"></div>
+                    <div class="diya-flame-container">
+                        <div class="diya-flame"></div>
+                    </div>
+                    <div class="diya-base"></div>
+                </div>
+                <div class="premium-diya">
+                    <div class="flame-glow"></div>
+                    <div class="diya-flame-container">
+                        <div class="diya-flame"></div>
+                    </div>
+                    <div class="diya-base"></div>
+                </div>
+                <div class="premium-diya">
+                    <div class="flame-glow"></div>
+                    <div class="diya-flame-container">
+                        <div class="diya-flame"></div>
+                    </div>
+                    <div class="diya-base"></div>
+                </div>
+            </div>
+
+            <div class="video-showcase" id="videoShowcase" style="display: none;">
+                <video id="displayVideo" controls></video>
+            </div>
+
+            <div class="wish-message-box">
+                <p class="wish-message-text" id="displayMessage"></p>
+            </div>
+
+            <div class="from-name-section">
+                <p class="from-label">From</p>
+                <p class="from-name" id="displayFromName"></p>
+            </div>
+
+            <div class="action-bar">
+                <button class="action-btn download-btn" onclick="downloadCard()">
+                    📥 Download
+                </button>
+                <button class="action-btn share-btn" onclick="shareCard()">
+                    📤 Share
+                </button>
+                <button class="action-btn reset-btn" onclick="resetCard()">
+                    🔄 New Card
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+        let uploadedVideo = null;
+
+        // Particle System
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = this.randomColor();
+            }
+
+            randomColor() {
+                const colors = ['#ffd700', '#ff6b35', '#8338ec', '#3a86ff', '#06ffa5'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // File Upload Handlers
+        const uploadArea = document.getElementById('uploadArea');
+        const videoInput = document.getElementById('videoInput');
+        const filePreview = document.getElementById('filePreview');
+        const fileName = document.getElementById('fileName');
+
+        uploadArea.addEventListener('click', () => videoInput.click());
+
+        videoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                uploadedVideo = URL.createObjectURL(file);
+                fileName.textContent = `✅ ${file.name}`;
+                filePreview.classList.add('active');
+            }
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('drag-over');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('drag-over');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('video/')) {
+                uploadedVideo = URL.createObjectURL(file);
+                fileName.textContent = `✅ ${file.name}`;
+                filePreview.classList.add('active');
+            }
+        });
+
+        // Create Card
+        function createCard() {
+            const fromName = document.getElementById('fromName').value.trim();
+            const toName = document.getElementById('toName').value.trim();
+            const message = document.getElementById('wishMessage').value.trim();
+
+            if (!fromName || !toName) {
+                alert('🙏 कृपया दोनों नाम भरें!');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loadingOverlay').classList.add('active');
+
+            setTimeout(() => {
+                // Hide input section
+                document.getElementById('inputSection').classList.add('hidden');
+
+                // Show wish card
+                const wishCard = document.getElementById('wishCard');
+                wishCard.classList.add('active');
+
+                // Set values
+                document.getElementById('displayFromName').textContent = fromName;
+                document.getElementById('displayToName').textContent = toName;
+                document.getElementById('displayMessage').textContent = message;
+
+                // Handle video
+                const videoShowcase = document.getElementById('videoShowcase');
+                const displayVideo = document.getElementById('displayVideo');
+
+                if (uploadedVideo) {
+                    videoShowcase.style.display = 'block';
+                    displayVideo.src = uploadedVideo;
+                }
+
+                // Hide loading
+                document.getElementById('loadingOverlay').classList.remove('active');
+
+                // Trigger mega fireworks
+                setTimeout(() => megaFireworks(), 500);
+
+                // Scroll to card
+                wishCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 2000);
+        }
+
+        // Mega Fireworks
+        function createFirework(x, y) {
+            const colors = ['#ffd700', '#ff6b35', '#8338ec', '#3a86ff', '#06ffa5', '#ffed4e', '#ff006e'];
+            const particles = 40;
+
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(particle);
+
+                const angle = (Math.PI * 2 * i) / particles;
+                const velocity = 3 + Math.random() * 4;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+
+                let posX = x;
+                let posY = y;
+                let life = 1;
+                let gravity = 0.1;
+
+                const animate = () => {
+                    posX += vx;
+                    posY += vy;
+                    vy += gravity;
+                    life -= 0.015;
+
+                    particle.style.left = posX + 'px';
+                    particle.style.top = posY + 'px';
+                    particle.style.opacity = life;
+                    particle.style.transform = `scale(${life})`;
+
+                    if (life > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
+                    }
+                };
+
+                animate();
+            }
+        }
+
+        function megaFireworks() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const x = (window.innerWidth / 8) * (i + 0.5);
+                    const y = 100 + Math.random() * 200;
+                    createFirework(x, y);
+                }, i * 400);
+            }
+        }
+
+        // Continuous fireworks
+        setInterval(() => {
+            if (document.getElementById('wishCard').classList.contains('active')) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * (window.innerHeight * 0.4);
+                createFirework(x, y);
+            }
+        }, 3000);
+
+        // Download Card
+        function downloadCard() {
+            alert('📸 अपना Wish Card Save करने के लिए:\n\n🖥️ Desktop:\n• Windows: Win + Shift + S\n• Mac: Cmd + Shift + 4\n\n📱 Mobile:\n• Volume Down + Power Button\n• या Browser Menu → Screenshot\n\n💡 Tip: Full card visible होने पर screenshot लें!');
+        }
+
+        // Share Card
+        function shareCard() {
+            const toName = document.getElementById('toName').value;
+            const fromName = document.getElementById('fromName').value;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: '✨ दीपावली की शुभकामनाएं ✨',
+                    text: `${toName} को ${fromName} की ओर से दीपावली की हार्दिक शुभकामनाएं! 🪔✨🎆`
+                }).catch(() => {});
+            } else {
+                const text = `${toName} को ${fromName} की ओर से दीपावली की हार्दिक शुभकामनाएं! 🪔✨`;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('✅ Message copied! अब इसे कहीं भी paste करके share करें!');
+                });
+            }
+        }
+
+        // Reset Card
+        function resetCard() {
+            document.getElementById('inputSection').classList.remove('hidden');
+            document.getElementById('wishCard').classList.remove('active');
+
+            // Clear form
+            document.getElementById('fromName').value = '';
+            document.getElementById('toName').value = '';
+            document.getElementById('videoInput').value = '';
+            filePreview.classList.remove('active');
+            uploadedVideo = null;
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Sparkle on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.92) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.fontSize = '20px';
+                sparkle.style.zIndex = '9999';
+                sparkle.textContent = ['✨', '🌟', '⭐', '💫'][Math.floor(Math.random() * 4)];
+                sparkle.style.animation = 'sparkleFloat 1s ease-out forwards';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleFloat {
+                0% { 
+                    opacity: 1; 
+                    transform: translateY(0) scale(0) rotate(0deg);
+                }
+                100% { 
+                    opacity: 0; 
+                    transform: translateY(-50px) scale(1.5) rotate(180deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
